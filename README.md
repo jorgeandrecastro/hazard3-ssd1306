@@ -1,11 +1,13 @@
-[![crates.io](https://img.shields.io/crates/v/embassy-ssd1306.svg)](https://crates.io/crates/embassy-ssd1306)
-[![docs.rs](https://docs.rs/embassy-ssd1306/badge.svg)](https://docs.rs/embassy-ssd1306)
+[![crates.io](https://img.shields.io/crates/v/hazard3-ssd1306.svg)](https://crates.io/crates/hazard3-ssd1306)
+[![docs.rs](https://docs.rs/hazard3-ssd1306/badge.svg)](https://docs.rs/hazard3-ssd1306)
 [![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
-# embassy-ssd1306
+# hazard3-ssd1306
 
 Asynchronous `no_std` driver for the SSD1306 128x64 OLED display over I2C, tested on the Pico 2 (RP2350) and Pico (RP2040).
-Optimized for the `embassy` executor.
+Optimized for the `hazard3` executor.
+This project is based on [Hazard3](https://github.com/jorgeandrecastro/Hazard3),
+a modern async embedded framework for Rust and RISC-V.
 
 It provides a 1024-byte RAM framebuffer with graphics primitives
 (pixels, lines, rectangles, bitmaps), text and numbers (5x7 font), and an
@@ -30,28 +32,28 @@ optimized page-by-page I2C flush (pages 0 through 7).
 - Other uppercase Greek letters (`Π`, `Λ`, `Θ`, `Φ`...) are not currently supported.
 
 
-## Architecture and Embassy time backend
+## Architecture and Hazard3 time backend
 
-The driver supports ARM/Cortex-M and RISC-V targets. Select the Embassy time
+The driver supports ARM/Cortex-M and RISC-V targets. Select the Hazard3 time
 backend that matches your target:
 
 | Target family | Cargo feature | Backend |
 |---|---|---|
 | ARM / Cortex-M | `time-upstream` (default) | Official `embassy-time` |
-| RISC-V | `time-riscv` | `embassy-time-riscv` |
+| RISC-V | `time-riscv` | `hazard3-time` |
 
 For ARM / Cortex-M, the default dependency configuration is sufficient:
 
 ```toml
 [dependencies]
-embassy-ssd1306 = "0.7"
+hazard3-ssd1306 = "0.7"
 ```
 
 For RISC-V, disable the default backend and enable `time-riscv`:
 
 ```toml
 [dependencies]
-embassy-ssd1306 = { version = "0.7", default-features = false, features = ["time-riscv"] }
+hazard3-ssd1306 = { version = "0.7", default-features = false, features = ["time-riscv"] }
 ```
 
 Exactly one time backend must be enabled. For example, check an ARM build with:
@@ -186,8 +188,8 @@ while minimizing memory usage on the microcontroller.
 
 **v0.7.4**: Readme fix and cargo toml fix.
 
-**v0.7.3**: RISC-V support now uses the published `embassy-time-riscv` and
-`embassy-time-driver-riscv` crates from crates.io, instead of a local Cargo patch.
+**v0.7.3**: RISC-V support now uses the published `hazard3-time` and
+`hazard3-time-driver` crates from crates.io, instead of a local Cargo patch.
 
 The full changelog for all versions is available in 👉 [CHANGELOG.md](CHANGELOG.md).
 

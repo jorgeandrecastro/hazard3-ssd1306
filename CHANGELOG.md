@@ -1,10 +1,10 @@
-# 📜 Changelog - embassy-ssd1306
+# 📜 Changelog - hazard3-ssd1306
 
 The primary goal of this driver is to remain lightweight and pragmatic. We avoid
 adding complex features that would bloat the binary, preserving the critical
 resources of microcontrollers (RAM/Flash).
 
-All notable changes to `embassy-ssd1306` are documented here.
+All notable changes to `hazard3-ssd1306` are documented here.
 This project follows [Semantic Versioning](https://semver.org/).
 
 ## [0.7.4]
@@ -16,16 +16,16 @@ This project follows [Semantic Versioning](https://semver.org/).
 ### Changed
 - Replaced the local Cargo `[patch.crates-io]` configuration with published
   Crates.io dependencies:
-  - `embassy-time-riscv = "0.1.2"`
-  - `embassy-time-driver-riscv = "0.1"`
+  - `hazard3-time = "0.1.2"`
+  - `hazard3-time-driver = "0.1"`
 - Kept the upstream `embassy-time = "0.5"` backend available for ARM/Cortex-M.
 - Consumers can enable RISC-V support with the `time-riscv` Cargo feature without
-  patching `embassy-time` or `embassy-time-driver-riscv` themselves.
+  patching `embassy-time` or `hazard3-time-driver` themselves.
 
 ## [0.7.2]
 
 ### Changed
-- Documented RISC-V support using the `embassy-time-riscv` crate dependency.
+- Documented RISC-V support using the `hazard3-time` crate dependency.
 - Added selectable `time-upstream` and `time-riscv` Cargo features.
 - Restored the standard `embassy-time = "0.5"` dependency to avoid native
   `embassy-time` driver conflicts between upstream and RISC-V implementations.

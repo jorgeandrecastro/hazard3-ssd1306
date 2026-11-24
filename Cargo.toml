@@ -1,7 +1,7 @@
 
 [package]
 edition = "2024"
-name = "embassy-ssd1306"
+name = "hazard3-ssd1306"
 version = "0.7.4"
 authors = ["Jorge Andre Castro <georgeandrec@gmail.com>"]
 build = false
@@ -10,13 +10,13 @@ autobins = false
 autoexamples = false
 autotests = false
 autobenches = false
-description = "Async no_std driver for the SSD1306 OLED display over I2C, based on Embassy."
-documentation = "https://docs.rs/embassy-ssd1306"
+description = "Async no_std driver for the SSD1306 OLED display over I2C, based on Hazard3."
+documentation = "https://docs.rs/hazard3-ssd1306"
 readme = "README.md"
-keywords = ["embassy", "ssd1306", "oled", "no-std", "hardware-support"]
+keywords = ["hazard3", "ssd1306", "oled", "no-std", "hardware-support"]
 categories = ["embedded", "no-std", "hardware-support"]
 license = "GPL-2.0-or-later"
-repository = "https://github.com/jorgeandrecastro/embassy-ssd1306"
+repository = "https://github.com/jorgeandrecastro/Hazard3"
 
 [lib]
 name = "embassy_ssd1306"
@@ -27,8 +27,8 @@ path = "src/lib.rs"
 default = ["time-upstream"]
 time-upstream = ["dep:embassy-time"]
 
-# RP2350 Hazard3 RISC-V: custom Embassy fork
-time-riscv = ["dep:embassy-time-riscv"]
+# RP2350 Hazard3 RISC-V
+time-riscv = ["dep:hazard3-time"]
 
 [dependencies]
 embedded-hal-async = "1.0"
@@ -39,14 +39,15 @@ embassy-time = {
     default-features = false
 }
 
-embassy-time-riscv = {
-    package = "embassy-time-riscv",
-    version = "0.1.2",
+hazard3-time = {
+    package = "hazard3-time",
+    version = "0.1",
     optional = true,
     default-features = false
 }
 
-embassy-time-driver-riscv = {
+hazard3-time-driver = {
+    package = "hazard3-time-driver",
     version = "0.1",
     optional = true,
     default-features = false

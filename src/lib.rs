@@ -9,14 +9,14 @@
 // DOCUMENTATION
 // ============================================================
 
-//! # embassy-ssd1306
+//! # hazard3-ssd1306
 //!
 //! Asynchronous `no_std` driver for the SSD1306 128x64 OLED display over I2C.
 //!
-//! Supports two Embassy time backends:
+//! Supports two Hazard3 time backends:
 //!
 //! - `time-upstream`: Official Embassy time backend (ARM/Cortex-M).
-//! - `time-riscv`: RISC-V backend from the embassy-riscv fork.
+//! - `time-riscv`: RISC-V backend from the Hazard3 fork.
 //!
 //! Select exactly one backend through Cargo features.
 //!
@@ -51,7 +51,7 @@
 // EMBASSY TIME BACKEND SELECTION
 // ============================================================
 
-// RISC-V: expose embassy-time-riscv under the standard crate name.
+// RISC-V: expose Hazard3 time under the standard crate name.
 #[cfg(feature = "time-riscv")]
 extern crate embassy_time_riscv as embassy_time;
 
@@ -64,7 +64,7 @@ compile_error!(
 // Require exactly one backend.
 #[cfg(not(any(feature = "time-upstream", feature = "time-riscv")))]
 compile_error!(
-    "Select one Embassy time backend: \"time-upstream\" or \"time-riscv\"."
+    "Select one Hazard3 time backend: \"time-upstream\" or \"time-riscv\"."
 );
 
 // ============================================================
