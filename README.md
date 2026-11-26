@@ -1,6 +1,6 @@
 [![crates.io](https://img.shields.io/crates/v/hazard3-ssd1306.svg)](https://crates.io/crates/hazard3-ssd1306)
 [![docs.rs](https://docs.rs/hazard3-ssd1306/badge.svg)](https://docs.rs/hazard3-ssd1306)
-[![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
+[![License: MIT OR Apache-2.0](https://img.shields.io/badge/License-MIT%20or%20Apache--2.0-blue.svg)](https://opensource.org/licenses/MIT)
 
 # hazard3-ssd1306
 
@@ -193,8 +193,16 @@ while minimizing memory usage on the microcontroller.
 
 The full changelog for all versions is available in 👉 [CHANGELOG.md](CHANGELOG.md).
 
-## License
+## 🛡️ License
 
-GPL-2.0-or-later 
+Licensed under either of:
 
-Copyright (C) 2026 Jorge Andre Castro
+    MIT license (http://opensource.org/licenses/MIT)
+
+    Apache License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0)
+
+at your option.
+
+## 🦅 About
+
+Developed by Jorge Andre Castro.
